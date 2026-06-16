@@ -1,6 +1,199 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小王子</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f0f;
+      --surface: #161616;
+      --border: #2a2a2a;
+      --text: #e8e8e8;
+      --muted: #888;
+      --accent-amber: #c8a96e;
+      --accent-silver: #b0b8c8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Noto Serif SC', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      width: 100%;
+      max-width: 680px;
+      padding: 96px 32px 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .name {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(48px, 10vw, 80px);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .name span {
+      color: var(--accent-amber);
+    }
+
+    .tagline {
+      margin-top: 28px;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 420px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 100%;
+      max-width: 680px;
+      padding: 0 32px;
+    }
+    .divider hr {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Cards ── */
+    .cards {
+      width: 100%;
+      max-width: 680px;
+      padding: 48px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: #444;
+    }
+
+    .card-icon {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Signature line ── */
+    .signature {
+      width: 100%;
+      max-width: 680px;
+      padding: 32px 32px 80px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sig-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-amber);
+      flex-shrink: 0;
+    }
+
+    .sig-text {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── Ambient glow ── */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(200,169,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @media (max-width: 480px) {
+      .cards { grid-template-columns: 1fr; }
+      .hero { padding: 72px 24px 48px; }
+    }
+  </style>
+</head>
 <body>
-  <h1>Hello, I'm zero-612!</h1>
+
+  <section class="hero">
+    <p class="eyebrow">个人主页</p>
+    <h1 class="name">小<span>王子</span></h1>
+    <p class="tagline">用镜头记录光与影，用酒杯调和酸与甜。<br>摄影师 · 调饮师</p>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <section class="cards">
+    <div class="card">
+      <div class="card-icon">📷</div>
+      <div class="card-title">摄影</div>
+      <div class="card-desc">捕捉每一个值得被记住的瞬间，光线是我最喜欢的语言。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🍹</div>
+      <div class="card-title">调饮</div>
+      <div class="card-desc">从基酒到特调，每一杯都是对味觉的一次实验。</div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <div class="signature">
+    <div class="sig-dot"></div>
+    <p class="sig-text">生活本身就是一场长曝光。</p>
+  </div>
+
 </body>
 </html>
